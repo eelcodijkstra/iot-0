@@ -54,8 +54,6 @@ Deze netwerkprovider heeft daarvoor overal antenne's geplaatst, bij voorkeur hoo
 Via het netwerk van je provider maak je dan verbinding met de rest van het internet.
 De rest van het internet hoeft voor het gebruik van smartphones en de bijbehorende toepassingen niet aangepast te worden.
 
-Overigens
-
 .. figure:: inleiding/Internet-of-things.png
    :width: 400px
    :align: center
@@ -71,23 +69,25 @@ Het begrip "ding" is erg ruim: het kan ook gaan om levende wezens, zoals dieren 
 Het is nu mogelijk om computers, mensen en dingen via het internet aan elkaar te verbinden.
 Het aantal internetverbindingen neemt hierdoor explosief toe.
 
-Meestal sluit je een "ding" aan op het internet via een radioverbinding:
-daarmee voorkom je lastige bedrading, en kun je werken met mobiele dingen.
+Meestal sluit je een "ding" aan op het internet via een draadloze (radio)verbinding:
+daarmee voorkom je lastige draden, en kun je werken met mobiele dingen.
 Net als bij de smartphones heb je voor het internet of things alleen aanpassingen aan de rand van het netwerk nodig:
 de rest van het netwerk hoeft niet aangepast te worden.
 
 .. rubric:: Andere ontwikkelingen in de ICT: Data Science, Artificial Intelligence
 
-Het internet of things maakt het mogelijk om beslissingen te nemen op basis van de actuele situatie - in plaats van op basis van een historisch gemiddelde.
-De vele sensordata van het IoT moeten dan wel verder geanalyseerd en bewerkt worden.
-De ontwikkelingen op het gebied van Data Science (big data) en Artificial Intelligence sluiten hier goed op aan:
-hiermee kun je ruwe data omvormen tot zinvolle informatie.
-Vaak worden de sensordata hierbij gecombineerd met data en kennis over de context.
-Het combineren van de sensordata met diensten en data uit andere bronnen kom je bij veel IoT-toepassingen tegen.
+In verband met het Internet of Things spreken we vaak over *slimme oplossingen*.
+Bij zo'n slimme oplossing combineren we de gegevens van "dingen" met diensten in het internet.
+Zulke diensten combineren vaak grote hoeveelheden data uit allerlei bronnen.
+Met behulp van Data Science en Artificial Intelligence herkennen ze patronen in deze data,
+en voorspellen daarmee de gevolgen van beslissingen.
+Deze diensten worden slimmer door het gebruik van IoT-data;
+"dingen" in het IoT kun je slimmer besturen met behulp van deze diensten.
+Het Internet of Things en Data Science en Artificial Intelligence ontwikkelen zich zo samen en versterken elkaar.
 
-In sommige gevallen worden de beslissingen op grond van de sensordata automatisch genomen, zonder tussenkomst van mensen.
+In sommige gevallen gebeurt de besturing van "dingen" automatisch, zonder tussenkomst van mensen.
 Dit kan bijvoorbeeld nodig zijn om snel genoeg te reageren in risicovolle situaties.
-Een dergelijke automatische verwerking stelt extra hoge eisen aan de sensordata en aan de verwerking hiervan.
+Een dergelijke automatische verwerking stelt extra hoge eisen aan de IoT-gegevens en aan de verwerking hiervan.
 
   Een voorbeeld van een dergelijke volautomatisch systeem is de `Maeslantkering <https://nl.wikipedia.org/wiki/Maeslantkering>`_ in de Nieuwe waterweg.
 
