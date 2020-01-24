@@ -31,14 +31,30 @@ en bijvoorbeeld om op afstand toegang te hebben tot supercomputers.
 
 Rond 1989/1990 vonden twee belangrijke ontwikkelingen plaats:
 het internet werd voor iedereen toegankelijk;
-en Tim Berners-Lee maakte de eerste implementatie van het web,
-met als eerste browser "WorldWideWeb".
-In de periode 1990-2000 heeft dit geleid tot een revolutionaire ontwikkeling in het gebruik van het internet.
+en Tim Berners-Lee bedacht het web, met als eerste browser "WorldWideWeb".
+Later werden de browsers Netscape Navigator (de voorloper van Firefox) en Internet Explorer.
+Door het gemak van het web is het gebruik van het internet in de periode 1990-2000 razendsnel gegroeid.
+
+  Het web is een toepassing van het internet.
+  HTTP, het web-protocol, is gebaseerd op de basisprotocollen van het internet: TCP met daaronder IP.
+  Alleen dit laatste protocol vind je in het eigenlijke internet terug.
+  Voor een nieuwe toepassing hoef je alleen de eindpunten (eindapparaten) aan te passen,
+  niet het netwerk zelf (*end-to-end* principe).
+  Dit maakt het erg eenvoudig om nieuwe toepassingen in te voeren.
+
 Een volgende stap was de introductie van de smartphone:
-vooral de iPhone (2007) heeft de aanzet gegeven tot de smartphone als "persoonlijk internet apparaat".
-Dit leidt tot de opbloei van "sociale toepassingen" zoals Facebook en Twitter.
-Deze periode zou je het "internet van mensen" kunnen noemen:
+vooral de iPhone (2007) heeft de aanzet gegeven tot de smartphone als *persoonlijk internet apparaat*.
+Dit leidt tot de opkomst van "sociale toepassingen" zoals Facebook en Twitter.
+Deze periode zou je het *internet van mensen* kunnen noemen:
 het internet verbindt niet alleen computers, maar ook mensen.
+
+Voor het aansluiten van een smartphone op het internet heb je *mobiel internet* nodig:
+via een radioverbinding (bijvoorbeeld 3G, 4G, enz.) maakt je telefoon verbinding met het netwerk van je internet-provider.
+Deze netwerkprovider heeft daarvoor overal antenne's geplaatst, bij voorkeur hoog op een gebouw of in een mast.
+Via het netwerk van je provider maak je dan verbinding met de rest van het internet.
+De rest van het internet hoeft voor het gebruik van smartphones en de bijbehorende toepassingen niet aangepast te worden.
+
+Overigens
 
 .. figure:: inleiding/Internet-of-things.png
    :width: 400px
@@ -55,6 +71,10 @@ Het begrip "ding" is erg ruim: het kan ook gaan om levende wezens, zoals dieren 
 Het is nu mogelijk om computers, mensen en dingen via het internet aan elkaar te verbinden.
 Het aantal internetverbindingen neemt hierdoor explosief toe.
 
+Meestal sluit je een "ding" aan op het internet via een radioverbinding:
+daarmee voorkom je lastige bedrading, en kun je werken met mobiele dingen.
+Net als bij de smartphones heb je voor het internet of things alleen aanpassingen aan de rand van het netwerk nodig:
+de rest van het netwerk hoeft niet aangepast te worden.
 
 .. rubric:: Andere ontwikkelingen in de ICT: Data Science, Artificial Intelligence
 
