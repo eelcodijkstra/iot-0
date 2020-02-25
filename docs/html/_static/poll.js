@@ -31,6 +31,9 @@ Poll.prototype.init = function (opts) {
     this.getOptionText(); //populates optionList
     this.renderPoll();  //generates HTML
     this.checkPollStorage(); //checks localStorage to see if this poll has already been completed by this user
+
+    this.caption="Poll"
+    this.addCaption('runestone')
 };
 
 Poll.prototype.getQuestionText = function() {
@@ -216,6 +219,16 @@ Poll.prototype.checkPollStorage = function() {
 // Do not render poll data until login-complete event so we know instructor status
 $(document).bind("runestone:login-complete", function () {
     $("[data-component=poll]").each(function(index) {
-        pollList[this.id] = new Poll({"orig":this});
+        try {
+            pollList[this.id] = new Poll({"orig":this});
+        } catch(err) {
+            console.log(`Error rendering Parsons Problem ${this.id}`);
+        }
     });
 });
+
+if (typeof component_factory === 'undefined') {
+    component_factory = {}
+}
+component_factory['poll'] = function(opts) { return new Poll(opts)}
+

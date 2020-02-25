@@ -2,11 +2,15 @@
 Voorbeelden
 ***********
 
-We geven hier enkele uitgebreidere voorbeelden.
-Verder in dit hoofdstuk geven we een grotere lijst van voorbeelden waarvan je de details elders in het web kunt vinden.
+Aan de hand van enkele voorbeelden maak je hier kennis met de verschillende functionele bouwstenen van een IoT-toepassing.
+In een volgend hoofdstuk behandelen we de manier waarop deze *eindapparaten* met elkaar communiceren via het internet.
 
-Voorbeeld: watersproeier
-========================
+Watersproeier
+=============
+
+.. figure:: iot-watersproeier.png
+  :width: 600px
+  :align: center
 
 Als voorbeeld van een IoT-toepassingen kijken we naar het besproeien van een sportveld.
 We beginnen met een eenvoudige, lokale oplossing.
@@ -15,44 +19,80 @@ Deze breiden we stapsgewijs uit naar een "slimme" oplossing door steeds meer asp
 Actuator en controller
 ----------------------
 
+.. figure:: actuator-waterklep.png
+  :width: 200px
+  :align: center
+
+  Actuator: bestuurbare waterklep. Onderaan de vloeistof-aansluitingen, boven de elektrische aansluitingen voor de besturing
+
+De eerste oplossing is een automatische sproei-installatie.
+Deze bestaat uit sproeiers met bestuurbare kleppen (*actuatoren*) en een computer voor de besturing.
+Een dergelijke besturingscomputer noemen we een *controller*.
+De eenvoudigste automatische besturing is op basis van tijd, bijvoorbeeld:
+besproei de komende week van 22:00 uur tot 4:00 uur.
+
 .. figure:: actuator-controller.png
   :width: 300px
   :align: center
 
-De eerste oplossing is een automatische sproei-installatie.
-Deze bestaat uit sproeiers (*actuatoren*) en de besturing daarvan;
-een dergelijke besturingscomputer noemen we een *controller*.
-De eenvoudigste automatische besturing is op basis van tijd, bijvoorbeeld:
-besproei de komende week van 22:00 uur tot 4:00 uur.
-
 Met deze oplossing kunnen we sproeien op momenten dat dit het meeste zin heeft,
 zonder dat we er zelf bij hoeven te zijn.
+
+.. admonition:: Wat is een actuator?
+
+  Een actuator zet informatie om in een fysiek verschijnsel,
+  bijvoorbeeld beweging, geluid of licht.
+  Voorbeelden van actuatoren zijn: (servo)motor, relais, klep, luidspreker,
+  lamp.
+  Actuatoren gebruik je in het internet of things voor het *besturen* van "dingen".
 
 .. admonition:: Wat is een controller?
 
   Een controller is een besturingscomputer.
-  Dit kan variëren van een *microcontroller*: een complete computer op een chip,
-  met analoge en digitale aansluitingen voor sensoren en actuatoren,
-  tot een NodeRed-server.
-  In NodeRed kun je allerlei protocollen en diensten, van laag tot hoog niveau,
-  aan elkaar verbinden en combineren met regels voor de besturing.
+  In een IoT-apparaat vind je vaak een  *microcontroller*:
+  een complete computer op een chip,
+  met analoge en digitale aansluitingen voor sensoren en actuatoren.
+  Voorbeeld: een *micro:bit* is een bordje met een ARM-microcontroller,
+  een aantal sensoren (drukknoppen, temperatuursensor, 3D-versnellingsopnemer,
+  kompas), en actuatoren (led-matrix), en een radio.
+  Verderop in een IoT-toepassing gebruik je controllers om de verschillende
+  functionele elementen, IoT-apparaten tot internetdiensten te verbinden,
+  en te combineren met allerlei regels voor de besturing.
+  Een voorbeeld hiervan is een NodeRed-server.
 
 Sensoren
 --------
+
+.. figure:: sensor-bodemvochtigheid.png
+  :width: 250px
+  :align: center
+
+  Capacitatieve bodemvochtigheidssensor
+
+Deze eerste  oplossing is nog niet optimaal.
+Een nadeel is dat er volgens dit schema altijd gesproeid wordt - ook als de grond al nat is van de regen.
+Dit betekent op z'n minst een verspilling van water;
+bovendien kan  het veld hierdoor te drassig worden, wat ook niet de bedoeling is.
 
 .. figure:: actuator-sensor-controller.png
   :width: 300px
   :align: center
 
-Deze eerste  oplossing is nog niet optimaal.
-Een nadeel is dat er volgens dit schema altijd gesproeid wordt - ook als de al grond nat is van de regen.
-Dit betekent op z'n minst een verspilling van water;
-bovendien kan  het veld hierdoor te drassig worden, wat ook niet de bedoeling is.
-
 We kunnen deze problemen voorkomen door (lokale) *sensoren* te gebruiken,
 om de bodemvochtigheid te meten, om te meten of het regent,
 en bijvoorbeeld om de luchtvochtigheid en de temperatuur te meten.
 Hiermee kunnen we al zuiniger met water omspringen.
+
+.. admonition:: Wat is een sensor?
+
+  Een sensor zet een fysiek verschijnsel om in informatie.
+  Voorbeelden van sensoren zijn: microfoon (voor geluid), temperatuursensor,
+  camera (beeld), lichtsensor, vernellingsopnemer,
+  GPS-ontvanger (positie), hall-sensor (magnetisme), gassensoren, enz.
+
+  Een fysiek verschijnsel kan vaak door verschillende sensoren waargenomen worden.
+  De aanwezigheid van een persoon kun je bijvoorbeeld meten via temperatuur,
+  gewicht, geluid, beeld, gasconcentraties, enz.
 
 Aan het internet
 ----------------
@@ -113,7 +153,6 @@ en voor de koppeling met diensten elders.
 
 Dit gebruik van meerdere controllers is een voorbeeld van *distributie* van functionaliteit in een netwerk.
 
-
 Samenvatting
 ------------
 
@@ -129,8 +168,8 @@ De eerste stappen zijn voorbeelden van traditionele automatisering.
 De stappen 3 en 4 zijn voorbeelden van het internet of things:
 de verbinding met het internet geeft veel extra mogelijkheden.
 
-Voorbeeld: verlichting
-======================
+Slimme verlichting
+==================
 
 Als volgend voorbeeld gebruiken we een domotica-voorbeeld: verlichting in huis.
 We behandelen dit aan de hand van het Philips Hue systeem.
@@ -178,23 +217,23 @@ Via de hue-webserver kun je verbinding maken met controller-diensten als Apple H
 
   * figuur van Hue met andere controller(s)
 
-Voorbeeld: monitoring
-=====================
+Bewaken van bijenkasten
+=======================
 
 .. figure:: DBveld.jpg
     :width: 200px
     :align: right
 
 In de bovenstaande voorbeelden is er steeds sprake van besturing (*control*), via actuatoren.
-Ook met alleen sensoren, voor bewaking (*monitoring*), zijn al veel zinvolle IoT-toepassingen te maken.
+Ook met alleen sensoren voor bewaking (*monitoring*) zijn al veel zinvolle IoT-toepassingen te maken.
 Als voorbeeld gebruiken we het bewaken op afstand van een bijenkast.
 
 Een imker (bijenhouder) heeft vaak meerdere bijenkasten, verspreid over een groot gebied.
-Het loont de moeite om de activiteit van de bijen op afstand te kunnen bewaken (*monitoring*).
-De imker kan dan de gezondheid van zijn bijenvolken continu in de gaten houden,
+Het loont de moeite om de activiteit van de bijen op afstand te kunnen bewaken.
+De imker kan dan de gezondheid van zijn bijenvolken voortdurend in de gaten houden,
 en op tijd ingrijpen als er dingen mis dreigen te gaan.
 
-De stichting `Beep <https://beep.nl>`_ ontwikkelt een open-source systeem voor het bewaken van bijenkast,
+De stichting `Beep <https://beep.nl>`_ ontwikkelt een open-source systeem voor het bewaken van bijenkasten
 en voor het bijhouden van de belangrijkste gegevens in een app.
 De gegevens van het automatische meetsysteem combineer je in de app met gegevens van eigen inspecties.
 Het automatische meetsysteem stuurt enkele keren per uur de belangrijkste gegevens op via een LoRa (long range) IoT-netwerk.
@@ -217,3 +256,12 @@ Zie de presentatie hierover: https://www.slideshare.net/martenschoonman/beep-bee
 
 Als veel bijenkasten met zo'n systeem uitgerust zijn helpt dat niet alleen de imker,
 maar ook het onderzoek naar het gedrag en de gezondheid van bijenvolken.
+
+Toetsvragen
+===========
+
+.. toctree::
+  :maxdepth: 2
+  :hidden:
+
+  toetsvragen-voorbeelden.rst

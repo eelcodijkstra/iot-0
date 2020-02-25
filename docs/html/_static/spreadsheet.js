@@ -20,6 +20,11 @@ class SpreadSheet extends RunestoneBase {
             this.addAutoGradeButton();
             this.addOutput();
         }
+
+        this.caption = "Spreadsheet";
+        this.divid = this.div_id;
+        this.containerDiv = document.getElementById(this.div_id)
+        this.addCaption("runestone");
     }
 
     renderSheet() {
@@ -39,7 +44,7 @@ class SpreadSheet extends RunestoneBase {
         if (this.coltitles) {
             for (let i in this.coltitles) {
                 if (opts.columns[i]) {
-                    opts.columns[i].title = this.coltitles[i];
+                    opts.columns[i].title = unescape(this.coltitles[i]);
                 } else {
                     opts.columns.push({title:this.coltitles[i]});
                 }
@@ -174,7 +179,11 @@ class SpreadSheet extends RunestoneBase {
 $(document).bind("runestone:login-complete", function () {
     $("[data-component=spreadsheet]").each(function (index) {    // MC
         var opts = {"orig": this, 'useRunestoneServices':eBookConfig.useRunestoneServices};
-        ssList[this.id] = new SpreadSheet(opts);
+        try {
+            ssList[this.id] = new SpreadSheet(opts);
+        } catch(err) {
+            console.log(`Error rendering SpreadSheet Problem ${this.id}`);
+        }
     });
 });
 

@@ -31,29 +31,48 @@ RunestoneBase.prototype.init = function(opts) {
 };
 
 RunestoneBase.prototype.logBookEvent = function (eventInfo) {
+    if (this.graderactive) {
+        return;
+    }
     eventInfo.course = eBookConfig.course;
+    eventInfo.clientLoginStatus = eBookConfig.isLoggedIn;
     eventInfo.timezoneoffset = (new Date()).getTimezoneOffset()/60
     if (eBookConfig.useRunestoneServices && eBookConfig.logLevel > 0) {
         var post_return = jQuery.post(eBookConfig.ajaxURL + 'hsblog', eventInfo,
-                                      null, 'json');
+            function(jsondata) {
+                if (jsondata.log == false) {
+                    alert(jsondata.message);
+                    location.href = eBookConfig.app + '/default/user/login?_next=' + location.pathname;
+                }
+            }, 'json');
     }
     console.log("logging event " + JSON.stringify(eventInfo));
-    pageProgressTracker.updateProgress(eventInfo.div_id);
+    if (typeof pageProgressTracker.updateProgress === "function"
+        && eventInfo.act != 'edit') {
+        pageProgressTracker.updateProgress(eventInfo.div_id);
+    }
     return post_return;
 };
 
 RunestoneBase.prototype.logRunEvent = function (eventInfo) {
+    if (this.graderactive) {
+        return;
+    }
     eventInfo.course = eBookConfig.course;
+    eventInfo.clientLoginStatus = eBookConfig.isLoggedIn;
     eventInfo.timezoneoffset = (new Date()).getTimezoneOffset()/60
     if ( this.forceSave || (! 'to_save' in eventInfo) ) {
         eventInfo.save_code = "True"
     }
     if (eBookConfig.useRunestoneServices && eBookConfig.logLevel > 0) {
-        jQuery.post(eBookConfig.ajaxURL + 'runlog', eventInfo) // Log the run event
+        jQuery.post(eBookConfig.ajaxURL + 'runlog.json', eventInfo) // Log the run event
             .done((function(data, status, whatever) {
-                data = JSON.parse(data);
+                // data = JSON.parse(data);
                 if (data.message) {
                     alert(data.message);
+                    if (data.log == false) {
+                        location.href = eBookConfig.app + '/default/user/login?_next=' + location.pathname;
+                    }
                 }
                 this.forceSave = false;
             }).bind(this))
@@ -61,7 +80,9 @@ RunestoneBase.prototype.logRunEvent = function (eventInfo) {
                 this.forceSave = true; }).bind(this))
     }
     console.log("running " + JSON.stringify(eventInfo));
-    pageProgressTracker.updateProgress(eventInfo.div_id);
+    if (typeof pageProgressTracker.updateProgress === "function") {
+        pageProgressTracker.updateProgress(eventInfo.div_id);
+    }
 
 };
 
@@ -74,8 +95,11 @@ RunestoneBase.prototype.checkServer = function (eventInfo) {
         data.div_id = this.divid;
         data.course = eBookConfig.course;
         data.event = eventInfo;
+        if (this.graderactive && this.deadline) {
+            data.deadline = this.deadline;
+        }
         if (this.sid) {
-            data.sid = this.sid
+            data.sid = this.sid;
         }
         if (!eBookConfig.practice_mode){
             jQuery.getJSON(eBookConfig.ajaxURL + "getAssessResults", data, this.repopulateFromStorage.bind(this)).error(this.checkLocalStorage.bind(this));
@@ -137,3 +161,15 @@ RunestoneBase.prototype.shouldUseServer = function (data) {
 RunestoneBase.prototype.localStorageKey = function () {
     return eBookConfig.email + ":" + eBookConfig.course + ":" + this.divid + "-given";
 }
+
+
+RunestoneBase.prototype.addCaption = function(elType) {
+    //someElement.parentNode.insertBefore(newElement, someElement.nextSibling);
+    var capDiv = document.createElement('p');
+    $(capDiv).html(this.caption + " (" + this.divid + ")");
+    $(capDiv).addClass(`${elType}_caption`);
+    $(capDiv).addClass(`${elType}_caption_text`);
+    this.capDiv = capDiv;
+    //this.outerDiv.parentNode.insertBefore(capDiv, this.outerDiv.nextSibling);
+    this.containerDiv.appendChild(capDiv);
+};

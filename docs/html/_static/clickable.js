@@ -54,6 +54,10 @@ ClickableArea.prototype.init = function (opts) {
     this.getQuestion();
     this.getFeedback();
     this.renderNewElements();
+
+    this.caption="Clickable"
+	this.addCaption('runestone')
+
 };
 
 /*===========================
@@ -156,6 +160,9 @@ ClickableArea.prototype.restoreAnswers = function (data) {
 
 
 ClickableArea.prototype.checkLocalStorage = function () {
+    if (this.graderactive) {
+        return;
+    }
     // Gets previous answer data from local storage if it exists
     this.hasStoredAnswers = false;
     var len = localStorage.length;
@@ -381,7 +388,11 @@ ClickableArea.prototype.renderFeedback = function () {
 $(document).bind("runestone:login-complete", function () {
     $("[data-component=clickablearea]").each(function (index) {
         if ($(this).closest('[data-component=timedAssessment]').length == 0) { // If this element exists within a timed component, don't render it here
-            CAList[this.id] = new ClickableArea({"orig": this, "useRunestoneServices":eBookConfig.useRunestoneServices});
+            try {
+                CAList[this.id] = new ClickableArea({"orig": this, "useRunestoneServices":eBookConfig.useRunestoneServices});
+            } catch(err) {
+                console.log(`Error rendering ClickableArea Problem ${this.id}`);
+            }
         }
     });
 });
