@@ -37,8 +37,9 @@ Tenslotte geven we een lijst van mogelijke IoT-toepassingen op allerlei gebied.
   :hidden:
 
   inleiding/geschiedenis.rst
-  inleiding/voorbeelden.rst
-  inleiding/meer-toepassingen.rst
+  inleiding/vb-sproeier.rst
+  inleiding/vb-verlichting.rst
+  inleiding/iot-toepassingen.rst
   inleiding/iot-eisen.rst
   inleiding/overzicht.rst
   inleiding/gevolgen.rst

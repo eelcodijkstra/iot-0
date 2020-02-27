@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="nl">
   <head>
     <meta charset="utf-8" />
-    <title>Voorbeelden &#8212; iot-0  documentatie</title>
+    <title>Voorbeeld: watersproeier &#8212; iot-0  documentatie</title>
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/accessibility.css?v=DB047029" />
@@ -57,6 +57,8 @@
     <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Zoeken" href="../search.html" />
+    <link rel="next" title="Voorbeeld: slimme verlichting" href="vb-verlichting.html" />
+    <link rel="prev" title="Geschiedenis en ontwikkeling" href="geschiedenis.html" />
 
 <script type="text/javascript">
   eBookConfig = {};
@@ -96,9 +98,31 @@
 
 
 
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../voorwoord.html">Voorwoord</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../inleiding.html">IoT-toepassingen</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../inleiding.html">IoT-toepassingen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="geschiedenis.html">Geschiedenis en ontwikkeling</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Voorbeeld: watersproeier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#actuator-en-controller">Actuator en controller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sensoren">Sensoren</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aan-het-internet">Aan het internet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slimme-diensten">“Slimme” diensten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#meerdere-controllers">Meerdere controllers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#samenvatting">Samenvatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#toetsvragen">Toetsvragen</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="vb-verlichting.html">Voorbeeld: slimme verlichting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iot-toepassingen.html">IoT-toepassingen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iot-eisen.html">Eisen aan de communicatie</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overzicht.html">Overzicht</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gevolgen.html">Gevolgen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="opdrachten.html">Opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nodered-inleiding.html">Inleiding NodeRed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nodered-opdrachten-1.html">NodeRed opdrachten</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toetsvragen.html">Toetsvragen</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../bouwstenen.html">Bouwstenen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webserver.html">Webserver-knopen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../wifi.html">WiFi-MQTT-knopen</a></li>
@@ -115,6 +139,10 @@
 </ul>
 
 
+  <p class="topless"><a href="geschiedenis.html"
+                        title="vorig hoofdstuk">Vorige</a></p>
+  <p class="topless"><a href="vb-verlichting.html"
+                        title="volgend hoofdstuk">Volgende</a></p>
 <div id="searchbox" style="display: none" role="search">
 
     <div class="searchformwrapper">
@@ -141,23 +169,19 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="voorbeelden">
-<h1>Voorbeelden<a class="headerlink" href="#voorbeelden" title="Permalink naar deze titel">¶</a></h1>
-<p>Aan de hand van enkele voorbeelden maak je hier kennis met de verschillende functionele bouwstenen van een IoT-toepassing.
-In een volgend hoofdstuk behandelen we de manier waarop deze <em>eindapparaten</em> met elkaar communiceren via het internet.</p>
-<div class="section" id="watersproeier">
-<h2>Watersproeier<a class="headerlink" href="#watersproeier" title="Permalink naar deze titel">¶</a></h2>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../_images/iot-watersproeier.png"><img alt="../_images/iot-watersproeier.png" src="../_images/iot-watersproeier.png" style="width: 600px;" /></a>
-</div>
+  <div class="section" id="voorbeeld-watersproeier">
+<h1>Voorbeeld: watersproeier<a class="headerlink" href="#voorbeeld-watersproeier" title="Permalink naar deze titel">¶</a></h1>
 <p>Als voorbeeld van een IoT-toepassingen kijken we naar het besproeien van een sportveld.
 We beginnen met een eenvoudige, lokale oplossing.
 Deze breiden we stapsgewijs uit naar een “slimme” oplossing door steeds meer aspecten van het internet of things te gebruiken.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/iot-watersproeier.png"><img alt="../_images/iot-watersproeier.png" src="../_images/iot-watersproeier.png" style="width: 600px;" /></a>
+</div>
 <div class="section" id="actuator-en-controller">
-<h3>Actuator en controller<a class="headerlink" href="#actuator-en-controller" title="Permalink naar deze titel">¶</a></h3>
-<div class="figure align-center" id="id3">
+<h2>Actuator en controller<a class="headerlink" href="#actuator-en-controller" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-center" id="id1">
 <a class="reference internal image-reference" href="../_images/actuator-waterklep.png"><img alt="../_images/actuator-waterklep.png" src="../_images/actuator-waterklep.png" style="width: 200px;" /></a>
-<p class="caption"><span class="caption-text">Actuator: bestuurbare waterklep. Onderaan de vloeistof-aansluitingen, boven de elektrische aansluitingen voor de besturing</span><a class="headerlink" href="#id3" title="Permallink naar deze afbeelding">¶</a></p>
+<p class="caption"><span class="caption-text">Actuator: bestuurbare waterklep. Onderaan de vloeistof-aansluitingen, boven de elektrische aansluitingen voor de besturing</span><a class="headerlink" href="#id1" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>De eerste oplossing is een automatische sproei-installatie.
 Deze bestaat uit sproeiers met bestuurbare kleppen (<em>actuatoren</em>) en een computer voor de besturing.
@@ -193,10 +217,10 @@ Een voorbeeld hiervan is een NodeRed-server.</p>
 </div>
 </div>
 <div class="section" id="sensoren">
-<h3>Sensoren<a class="headerlink" href="#sensoren" title="Permalink naar deze titel">¶</a></h3>
-<div class="figure align-center" id="id4">
+<h2>Sensoren<a class="headerlink" href="#sensoren" title="Permalink naar deze titel">¶</a></h2>
+<div class="figure align-center" id="id2">
 <a class="reference internal image-reference" href="../_images/sensor-bodemvochtigheid.png"><img alt="../_images/sensor-bodemvochtigheid.png" src="../_images/sensor-bodemvochtigheid.png" style="width: 250px;" /></a>
-<p class="caption"><span class="caption-text">Capacitatieve bodemvochtigheidssensor</span><a class="headerlink" href="#id4" title="Permallink naar deze afbeelding">¶</a></p>
+<p class="caption"><span class="caption-text">Capacitatieve bodemvochtigheidssensor</span><a class="headerlink" href="#id2" title="Permallink naar deze afbeelding">¶</a></p>
 </div>
 <p>Deze eerste  oplossing is nog niet optimaal.
 Een nadeel is dat er volgens dit schema altijd gesproeid wordt - ook als de grond al nat is van de regen.
@@ -221,7 +245,7 @@ gewicht, geluid, beeld, gasconcentraties, enz.</p>
 </div>
 </div>
 <div class="section" id="aan-het-internet">
-<h3>Aan het internet<a class="headerlink" href="#aan-het-internet" title="Permalink naar deze titel">¶</a></h3>
+<h2>Aan het internet<a class="headerlink" href="#aan-het-internet" title="Permalink naar deze titel">¶</a></h2>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/controller-internet.png"><img alt="../_images/controller-internet.png" src="../_images/controller-internet.png" style="width: 500px;" /></a>
 </div>
@@ -230,7 +254,7 @@ Hiermee kunnen we de installatie <em>op afstand bedienen</em>, via een app,
 waarin we ook in een dashboard de gegevens van de sensoren kunnen bekijken.</p>
 </div>
 <div class="section" id="slimme-diensten">
-<h3>“Slimme” diensten<a class="headerlink" href="#slimme-diensten" title="Permalink naar deze titel">¶</a></h3>
+<h2>“Slimme” diensten<a class="headerlink" href="#slimme-diensten" title="Permalink naar deze titel">¶</a></h2>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/controller-diensten.png"><img alt="../_images/controller-diensten.png" src="../_images/controller-diensten.png" style="width: 500px;" /></a>
 </div>
@@ -251,7 +275,7 @@ Hiervoor is kennis nodig van de manier waarop gras groeit, en van de lokale bode
 Externe diensten spelen daarvoor een belangrijke rol.</p>
 </div>
 <div class="section" id="meerdere-controllers">
-<h3>Meerdere controllers<a class="headerlink" href="#meerdere-controllers" title="Permalink naar deze titel">¶</a></h3>
+<h2>Meerdere controllers<a class="headerlink" href="#meerdere-controllers" title="Permalink naar deze titel">¶</a></h2>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="../_images/IoT-node-controller-controller.png"><img alt="../_images/IoT-node-controller-controller.png" src="../_images/IoT-node-controller-controller.png" style="width: 600px;" /></a>
 </div>
@@ -267,9 +291,18 @@ Omdat je het rekenwerk in de lokale controllers kunt zien als een lokaal verleng
 <p>De globale controller zorgt voor de bereikbaarheid in het internet,
 en voor de koppeling met diensten elders.</p>
 <p>Dit gebruik van meerdere controllers is een voorbeeld van <em>distributie</em> van functionaliteit in een netwerk.</p>
+<div class="admonition-wat-is-lokale-autonomie admonition">
+<p class="admonition-title">Wat is <em>lokale autonomie</em>?</p>
+<p>Een autonoom systeem kan zelfstandig functioneren, zonder ingrepen van buiten.
+Voorbeelden van autonome systemen zijn: robots, zelfrijdende auto’s, CV met thermostaat, enz.
+Met <em>lokale autonomie</em> bedoelen we hier dat het lokale systeem zonder verbinding met de buitenwereld zelfstandig kan blijven functioneren;
+maar door het ontbreken van globale informatie is het resultaat mogelijk minder optimaal.
+Met andere woorden: ook als de internetverbinding wegvalt, blijft het systeem functioneren,
+maar minder “slim” .</p>
+</div>
 </div>
 <div class="section" id="samenvatting">
-<h3>Samenvatting<a class="headerlink" href="#samenvatting" title="Permalink naar deze titel">¶</a></h3>
+<h2>Samenvatting<a class="headerlink" href="#samenvatting" title="Permalink naar deze titel">¶</a></h2>
 <p>Samenvattend zien we de volgende stappen:</p>
 <ol class="arabic simple">
 <li><p>automatisch besturen van actuatoren met een controller;</p></li>
@@ -278,97 +311,109 @@ en voor de koppeling met diensten elders.</p>
 <li><p>gebruik van diensten in het internet om tot een “slimme oplossing” te komen.</p></li>
 </ol>
 <p>Elke volgende stap helpt om meer water te besparen en om een beter sproei- en groeiresultaat te krijgen.
-De eerste stappen zijn voorbeelden van traditionele automatisering.
+De eerste stappen zijn voorbeelden van traditionele lokale automatisering.
 De stappen 3 en 4 zijn voorbeelden van het internet of things:
 de verbinding met het internet geeft veel extra mogelijkheden.</p>
 </div>
-</div>
-<div class="section" id="slimme-verlichting">
-<h2>Slimme verlichting<a class="headerlink" href="#slimme-verlichting" title="Permalink naar deze titel">¶</a></h2>
-<p>Als volgend voorbeeld gebruiken we een domotica-voorbeeld: verlichting in huis.
-We behandelen dit aan de hand van het Philips Hue systeem.</p>
-<div class="section" id="actuatoren-sensoren-en-controller">
-<h3>Actuatoren, sensoren en controller<a class="headerlink" href="#actuatoren-sensoren-en-controller" title="Permalink naar deze titel">¶</a></h3>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../_images/hue-local.png"><img alt="../_images/hue-local.png" src="../_images/hue-local.png" style="width: 400px;" /></a>
-</div>
-<p>De actuatoren zijn in dit geval de lampen.
-Deze kun je bedienen met drukknoppen en met (bewegings)sensoren.
-De controller (“bridge”) zorgt voor de koppeling tussen de sensoren en de actuatoren.
-De controller heeft geen eigen user interface:
-hiervoor gebruik je de app die via het lokale (WiFi) netwerk verbinding maakt met de controller.</p>
-</div>
-<div class="section" id="id1">
-<h3>Aan het internet<a class="headerlink" href="#id1" title="Permalink naar deze titel">¶</a></h3>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../_images/hue-server.png"><img alt="../_images/hue-server.png" src="../_images/hue-server.png" style="width: 500px;" /></a>
-</div>
-<p>Je kunt met de app de lampen ook op afstand bedienen, via het internet.
-Hiervoor maakt de app contact met de hue-server/controller in het publieke internet,
-die weer contact maakt met de lokale controller.</p>
-<p>We hebben hier te maken met 3 lagen van controllers:</p>
-<ul class="simple">
-<li><p>de lampen en de schakelaars zijn IoT-knopen, met lokaal sensor(en)/actuator(en),
-een microcontroller, en een radio;</p></li>
-<li><p>de bridge is de lokale controller;</p></li>
-<li><p>de server in het publieke internet is de globale controller.</p></li>
-</ul>
-</div>
-<div class="section" id="andere-controllers">
-<h3>Andere controllers<a class="headerlink" href="#andere-controllers" title="Permalink naar deze titel">¶</a></h3>
-<p>De lokale controller is in eerste instantie bedoeld voor verlichting.
-Je kunt de lokale controller ook verbinden met andere “domotica”-controllers voor bijvoorbeeld verwarming, koeling, veiligheid e.d.
-Voorbeelden van controller-software voor domotica-toepassingen zijn OpenHAB (<a class="reference external" href="https://www.openhab.org">https://www.openhab.org</a>) en Home Assist (<a class="reference external" href="https://www.home-assistant.io">https://www.home-assistant.io</a>).
-Via de hue-webserver kun je verbinding maken met controller-diensten als Apple Home Kit en Amazon Alexa.</p>
-<div class="admonition-todo admonition" id="id2">
-<p class="admonition-title">Te doen</p>
-<ul class="simple">
-<li><p>figuur van Hue met andere controller(s)</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="section" id="bewaken-van-bijenkasten">
-<h2>Bewaken van bijenkasten<a class="headerlink" href="#bewaken-van-bijenkasten" title="Permalink naar deze titel">¶</a></h2>
-<div class="figure align-right">
-<a class="reference internal image-reference" href="../_images/DBveld.jpg"><img alt="../_images/DBveld.jpg" src="../_images/DBveld.jpg" style="width: 200px;" /></a>
-</div>
-<p>In de bovenstaande voorbeelden is er steeds sprake van besturing (<em>control</em>), via actuatoren.
-Ook met alleen sensoren voor bewaking (<em>monitoring</em>) zijn al veel zinvolle IoT-toepassingen te maken.
-Als voorbeeld gebruiken we het bewaken op afstand van een bijenkast.</p>
-<p>Een imker (bijenhouder) heeft vaak meerdere bijenkasten, verspreid over een groot gebied.
-Het loont de moeite om de activiteit van de bijen op afstand te kunnen bewaken.
-De imker kan dan de gezondheid van zijn bijenvolken voortdurend in de gaten houden,
-en op tijd ingrijpen als er dingen mis dreigen te gaan.</p>
-<p>De stichting <a class="reference external" href="https://beep.nl">Beep</a> ontwikkelt een open-source systeem voor het bewaken van bijenkasten
-en voor het bijhouden van de belangrijkste gegevens in een app.
-De gegevens van het automatische meetsysteem combineer je in de app met gegevens van eigen inspecties.
-Het automatische meetsysteem stuurt enkele keren per uur de belangrijkste gegevens op via een LoRa (long range) IoT-netwerk.</p>
-<div class="figure align-center">
-<a class="reference internal image-reference" href="../_images/beep-lora-internet.png"><img alt="../_images/beep-lora-internet.png" src="../_images/beep-lora-internet.png" style="width: 500px;" /></a>
-</div>
-<p>Voor een imker zijn bijvoorbeeld de volgende gegevens van belang:</p>
-<ul class="simple">
-<li><p>de buitentemperatuur en de luchtvochtigheid in de omgeving van de kast;</p></li>
-<li><p>de temperatuur in de kast (broedtemperatuur);</p></li>
-<li><p>het gewicht van de kast: als de bijen de kast verlaten neemt het gewicht af;
-als de bijen terugkomen met nectar neemt het gewicht toe;</p></li>
-<li><p>het geluid in de kast.
-Als een bijenvolk door indringers beroofd wordt van de voedselvoorraad,
-kun je dit zien aan de combinatie van gewicht en geluid.</p></li>
-</ul>
-<p>Zie de presentatie hierover: <a class="reference external" href="https://www.slideshare.net/martenschoonman/beep-bee-app-overview-presentation-march-2018">https://www.slideshare.net/martenschoonman/beep-bee-app-overview-presentation-march-2018</a></p>
-<p>Als veel bijenkasten met zo’n systeem uitgerust zijn helpt dat niet alleen de imker,
-maar ook het onderzoek naar het gedrag en de gezondheid van bijenvolken.</p>
-</div>
 <div class="section" id="toetsvragen">
 <h2>Toetsvragen<a class="headerlink" href="#toetsvragen" title="Permalink naar deze titel">¶</a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="toetsvragen-voorbeelden.html">Toetsvragen bij voorbeelden</a></li>
-</ul>
-</div>
-</div>
+
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="false"  id="vraag-VBW-1">
+            <p>Q-1: Hoe heet een opnemer om een fysische grootheid te meten, bijvoorbeeld de temperatuur?</p>
+
+            <li data-component="answer"  id="vraag-VBW-1_opt_a">Controller</li><li data-component="feedback">Met een controller bestuur je een IoT-toepassing</li>
+            
+            <li data-component="answer"  id="vraag-VBW-1_opt_b">IoT-knoop</li><li data-component="feedback">Een IoT-knoop kan sensoren bevatten (en actuatoren)</li>
+            
+            <li data-component="answer" data-correct id="vraag-VBW-1_opt_c">Sensor</li><li data-component="feedback">Goed!</li>
+            
+            <li data-component="answer"  id="vraag-VBW-1_opt_d">Actuator</li><li data-component="feedback">Met een <em>actuator</em> verander je een fysische grootheid</li>
+            
+
+            </ul>
+            </div>
+            
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="true"  id="vraag1-VBW-2">
+            <p>Q-2: Welke van de onderstaande uitspraken is waar?</p>
+
+            <li data-component="answer" data-correct id="vraag1-VBW-2_opt_a">een controller bestuurt de sensoren en actuatoren bij het "ding"</li><li data-component="feedback">Ja.</li>
+            
+            <li data-component="answer"  id="vraag1-VBW-2_opt_b">een IoT-knoop bevat altijd sensoren en actuatoren</li><li data-component="feedback">Een IoT-knoop kan ook alleen sensoren of actuatoren bevatten.</li>
+            
+            <li data-component="answer" data-correct id="vraag1-VBW-2_opt_c">een IoT-knoop bevat altijd een controller</li><li data-component="feedback">Ja.</li>
+            
+            <li data-component="answer"  id="vraag1-VBW-2_opt_d">een IoT-knoop is altijd draadloos verbonden aan het internet</li><li data-component="feedback">Een IoT-knoop kan ook bedraad zijn</li>
+            
+
+            </ul>
+            </div>
+            
+<div class="runestone">
+<ul data-component="dragndrop" id="vraag1-VBW-3">
+    <span data-component="question">Q-3: Plaats de termen bij hun beschrijving.</span>
+	<span data-component=feedback>Zie: xxx</span>
+
+    <li data-component="draggable" id="vraag1-VBW-3_drag1">Controller </li>
+    <li data-component="dropzone" for="vraag1-VBW-3_drag1"> Besturingscomputer</li>
+
+    <li data-component="draggable" id="vraag1-VBW-3_drag2">Sensor     </li>
+    <li data-component="dropzone" for="vraag1-VBW-3_drag2"> Meet een fysische grootheid</li>
+
+    <li data-component="draggable" id="vraag1-VBW-3_drag3">Gateway    </li>
+    <li data-component="dropzone" for="vraag1-VBW-3_drag3"> Verbindt twee netwerken</li>
+</ul></div>
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="true"  id="vraag-VBW-4">
+            <p>Q-4: Welke van de onderstaande apparaten zijn actuatoren?</p>
+
+            <li data-component="answer"  id="vraag-VBW-4_opt_a">drukknop</li><li data-component="feedback">Een drukknop zet beweging om in informatie (sensor)</li>
+            
+            <li data-component="answer" data-correct id="vraag-VBW-4_opt_b">relais</li><li data-component="feedback">Een relais is een elektrische schakelaar bestuurd door informatie (actuator)</li>
+            
+            <li data-component="answer"  id="vraag-VBW-4_opt_c">barometer</li><li data-component="feedback">Een barometer zet luchtdruk om in informatie (sensor)</li>
+            
+            <li data-component="answer" data-correct id="vraag-VBW-4_opt_d">klep</li><li data-component="feedback">Een klep zet informatie om in beweging: open/dicht (actuator)</li>
+            
+
+            </ul>
+            </div>
+            
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="true"  id="vraag-VBW-5">
+            <p>Q-5: Welke van de onderstaande apparaten zijn sensoren?</p>
+
+            <li data-component="answer" data-correct id="vraag-VBW-5_opt_a">microfoon</li><li data-component="feedback">Een microfoon zet geluid om in informatie (sensor)</li>
+            
+            <li data-component="answer"  id="vraag-VBW-5_opt_b">luidspreker</li><li data-component="feedback">Een luidspreker zet informatie om in geluid (actuator)</li>
+            
+            <li data-component="answer"  id="vraag-VBW-5_opt_c">controller</li><li data-component="feedback">Een controller is een besturingscomputer (geen sensor of actuator)</li>
+            
+            <li data-component="answer" data-correct id="vraag-VBW-5_opt_d">GPS-ontvanger</li><li data-component="feedback">Een GPS-ontvanger zet een positie om in informatie (sensor)</li>
+            
+            <li data-component="answer"  id="vraag-VBW-5_opt_e">servomotor</li><li data-component="feedback">Een servomotor zet informatie om in een hoekverdraaiing (actuator)</li>
+            
+
+            </ul>
+            </div>
+            
+            <div class="runestone alert alert-warning">
+            <ul data-component="multiplechoice" data-multipleanswers="false"  id="vraag-VBW-6">
+            <p>Q-6: Wat zet een fysisch verschijnsel om in informatie?</p>
+
+            <li data-component="answer"  id="vraag-VBW-6_opt_a">Controller</li><li data-component="feedback">Met een controller bestuur je een IoT-toepassing</li>
+            
+            <li data-component="answer"  id="vraag-VBW-6_opt_b">IoT-knoop</li><li data-component="feedback">Een IoT-knoop kan sensoren bevatten (en actuatoren)</li>
+            
+            <li data-component="answer" data-correct id="vraag-VBW-6_opt_c">Sensor</li><li data-component="feedback">Goed!</li>
+            
+            <li data-component="answer"  id="vraag-VBW-6_opt_d">Actuator</li><li data-component="feedback">Met een <em>actuator</em> verander je een fysische grootheid</li>
+            
+
+            </ul>
+            </div>
+            </div>
 </div>
 
 
@@ -378,7 +423,7 @@ maar ook het onderzoek naar het gedrag en de gezondheid van bijenvolken.</p>
       </div>
     <div class="clearer"></div>
   </div>
-<jinja2.runtime.BlockReference object at 0x10fffaf50>
+<jinja2.runtime.BlockReference object at 0x10b92c890>
 <script type="text/javascript">
   $(document).trigger("runestone:login-complete");
 </script>

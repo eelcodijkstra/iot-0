@@ -1,6 +1,6 @@
-*****************
-Meer toepassingen
-*****************
+****************
+IoT-toepassingen
+****************
 
 .. bij de inleiding
 
@@ -8,7 +8,53 @@ Meer toepassingen
 .. rubric:: Voorbeelden van IoT-toepassingen
 
 Het Internet of Things biedt ontelbare mogelijkheden; veel toepassingen moeten nog bedacht en ontwikkeld worden.
-We noemen enkele voorbeelden:
+We geven hier eerst nog een uitgewerkt voorbeeld.
+Voor de andere toepassingen geven we alleen de verwijzingen naar uitgebreidere beschrijvingen.
+Tenslotten geven we een overzicht van de karakteristieken die je bij veel IoT-toepassingen tegenkomt:
+welke meerwaarde bieden deze IoT-toepassingen? welke problemen lossen ze op?
+
+Bewaken van bijenkasten
+=======================
+
+.. figure:: DBveld.jpg
+    :width: 200px
+    :align: right
+
+In de bovenstaande voorbeelden is er steeds sprake van besturing (*control*), via actuatoren.
+Ook met alleen sensoren voor bewaking (*monitoring*) zijn al veel zinvolle IoT-toepassingen te maken.
+Als voorbeeld gebruiken we het bewaken op afstand van een bijenkast.
+
+Een imker (bijenhouder) heeft vaak meerdere bijenkasten, verspreid over een groot gebied.
+Het loont de moeite om de activiteit van de bijen op afstand te kunnen bewaken.
+De imker kan dan de gezondheid van zijn bijenvolken voortdurend in de gaten houden,
+en op tijd ingrijpen als er dingen mis dreigen te gaan.
+
+De stichting `Beep <https://beep.nl>`_ ontwikkelt een open-source systeem voor het bewaken van bijenkasten
+en voor het bijhouden van de belangrijkste gegevens in een app.
+De gegevens van het automatische meetsysteem combineer je in de app met gegevens van eigen inspecties.
+Het automatische meetsysteem stuurt enkele keren per uur de belangrijkste gegevens op via een LoRa (long range) IoT-netwerk.
+
+.. figure:: beep-lora-internet.png
+    :width: 500px
+    :align: center
+
+Voor een imker zijn bijvoorbeeld de volgende gegevens van belang:
+
+* de buitentemperatuur en de luchtvochtigheid in de omgeving van de kast;
+* de temperatuur in de kast (broedtemperatuur);
+* het gewicht van de kast: als de bijen de kast verlaten neemt het gewicht af;
+  als de bijen terugkomen met nectar neemt het gewicht toe;
+* het geluid in de kast.
+  Als een bijenvolk door indringers beroofd wordt van de voedselvoorraad,
+  kun je dit zien aan de combinatie van gewicht en geluid.
+
+Zie de presentatie hierover: https://www.slideshare.net/martenschoonman/beep-bee-app-overview-presentation-march-2018
+
+Als veel bijenkasten met zo'n systeem uitgerust zijn helpt dat niet alleen de imker,
+maar ook het onderzoek naar het gedrag en de gezondheid van bijenvolken.
+
+Voorbeelden van IoT-toepassingen
+================================
 
 * domotica (huis-automatisering); voor verwarming (slimme thermostaat, voor beperken van het energieverbruik), tot verlichting (voor beleving en veiligheid) en beveiliging en toegang (slim deurslot, raamdetectoren, bewegingsmelders, camera's).
     * OpenHAB: https://www.openhab.org/
@@ -47,7 +93,8 @@ We noemen enkele voorbeelden:
     * binnenshuis: beacons (bijv. op basis van BLE)
     * toepassing: deelfietsen (in bijv. Parijs); deelauto's
 
-.. rubric:: Enkele overeenkomsten tussen deze toepassingen
+Waarde van IoT-toepassingen
+===========================
 
 Veel IoT-toepassingen helpen je om *betere beslissingen* te nemen:
 beslissingen gebaseerd op (complete) data uit de actuele werkelijkheid,
@@ -70,3 +117,29 @@ kun je vraag en aanbod veel beter op elkaar afstemmen.
 * een vriezer kan van te voren "koude" opslaan,
   en hoeft dan niet (zwaar) te werken tijdens piekbelasting van het net;
 * een wasmachine hoeft niet op een vast tijdstip te werken - als de was vandaag maar gedaan wordt.
+
+Vragen en opdrachten
+====================
+
+.. shortanswer:: H1S2-a
+  :optional:
+
+  Werk een IoT-toepassing uit in een kort verslag of presentatie.
+  Dit kan een IoT-toepassing zijn uit de lijst hierboven,
+  een toepassing die gevonden hebt op het web,
+  of een zelf-bedachte toepassing.
+  Gebruik hierbij de volgende vragen als inspiratie:
+
+  * Welke problemen lost de toepassing op? Wat zijn de voordelen, en voor wie?
+  * Wat zijn de mogelijke nadelen, en voor wie?
+  * Van welke (soorten) diensten kan deze toepassing goed gebruik maken?
+  * Welke diensten kunnen de data van deze toepassing goed gebruiken?
+  * Uit welke onderdelen bestaat het gebruikersinterface/de "app"?
+  * Wat zijn de real-time eisen van de toepassing? Wat zijn de maximale vertragingen?
+  * Welke eisen worden gesteld aan de betrouwbaarheid? veiligheid? privacy?
+  * Hoeveel data gebruikt de toepassing van de IoT-knopen
+    (bijvoorbeeld: 1 temperatuurmeting/5 minuten; of: real-time video streaming)?
+  * Welke eisen stelt de toepassing aan de mobiliteit van de IoT-knopen?
+    Moeten deze draadloos zijn? Welk bereik moet een radio voor de verbinding met deze knopen hebben?
+
+  Geef in het venster de link naar een document met de uitwerking.

@@ -1,20 +1,14 @@
-***********
-Voorbeelden
-***********
-
-Aan de hand van enkele voorbeelden maak je hier kennis met de verschillende functionele bouwstenen van een IoT-toepassing.
-In een volgend hoofdstuk behandelen we de manier waarop deze *eindapparaten* met elkaar communiceren via het internet.
-
-Watersproeier
-=============
-
-.. figure:: iot-watersproeier.png
-  :width: 600px
-  :align: center
+************************
+Voorbeeld: watersproeier
+************************
 
 Als voorbeeld van een IoT-toepassingen kijken we naar het besproeien van een sportveld.
 We beginnen met een eenvoudige, lokale oplossing.
 Deze breiden we stapsgewijs uit naar een "slimme" oplossing door steeds meer aspecten van het internet of things te gebruiken.
+
+.. figure:: iot-watersproeier.png
+  :width: 600px
+  :align: center
 
 Actuator en controller
 ----------------------
@@ -153,6 +147,15 @@ en voor de koppeling met diensten elders.
 
 Dit gebruik van meerdere controllers is een voorbeeld van *distributie* van functionaliteit in een netwerk.
 
+.. admonition:: Wat is *lokale autonomie*?
+
+  Een autonoom systeem kan zelfstandig functioneren, zonder ingrepen van buiten.
+  Voorbeelden van autonome systemen zijn: robots, zelfrijdende auto's, CV met thermostaat, enz.
+  Met *lokale autonomie* bedoelen we hier dat het lokale systeem zonder verbinding met de buitenwereld zelfstandig kan blijven functioneren;
+  maar door het ontbreken van globale informatie is het resultaat mogelijk minder optimaal.
+  Met andere woorden: ook als de internetverbinding wegvalt, blijft het systeem functioneren,
+  maar minder "slim" .
+
 Samenvatting
 ------------
 
@@ -164,103 +167,96 @@ Samenvattend zien we de volgende stappen:
 4. gebruik van diensten in het internet om tot een "slimme oplossing" te komen.
 
 Elke volgende stap helpt om meer water te besparen en om een beter sproei- en groeiresultaat te krijgen.
-De eerste stappen zijn voorbeelden van traditionele automatisering.
+De eerste stappen zijn voorbeelden van traditionele lokale automatisering.
 De stappen 3 en 4 zijn voorbeelden van het internet of things:
 de verbinding met het internet geeft veel extra mogelijkheden.
 
-Slimme verlichting
-==================
-
-Als volgend voorbeeld gebruiken we een domotica-voorbeeld: verlichting in huis.
-We behandelen dit aan de hand van het Philips Hue systeem.
-
-Actuatoren, sensoren en controller
-----------------------------------
-
-.. figure:: hue-local.png
-    :width: 400px
-    :align: center
-
-De actuatoren zijn in dit geval de lampen.
-Deze kun je bedienen met drukknoppen en met (bewegings)sensoren.
-De controller ("bridge") zorgt voor de koppeling tussen de sensoren en de actuatoren.
-De controller heeft geen eigen user interface:
-hiervoor gebruik je de app die via het lokale (WiFi) netwerk verbinding maakt met de controller.
-
-Aan het internet
-----------------
-
-.. figure:: hue-server.png
-    :width: 500px
-    :align: center
-
-Je kunt met de app de lampen ook op afstand bedienen, via het internet.
-Hiervoor maakt de app contact met de hue-server/controller in het publieke internet,
-die weer contact maakt met de lokale controller.
-
-We hebben hier te maken met 3 lagen van controllers:
-
-* de lampen en de schakelaars zijn IoT-knopen, met lokaal sensor(en)/actuator(en),
-  een microcontroller, en een radio;
-* de bridge is de lokale controller;
-* de server in het publieke internet is de globale controller.
-
-Andere controllers
-------------------
-
-De lokale controller is in eerste instantie bedoeld voor verlichting.
-Je kunt de lokale controller ook verbinden met andere "domotica"-controllers voor bijvoorbeeld verwarming, koeling, veiligheid e.d.
-Voorbeelden van controller-software voor domotica-toepassingen zijn OpenHAB (https://www.openhab.org) en Home Assist (https://www.home-assistant.io).
-Via de hue-webserver kun je verbinding maken met controller-diensten als Apple Home Kit en Amazon Alexa.
-
-.. todo::
-
-  * figuur van Hue met andere controller(s)
-
-Bewaken van bijenkasten
-=======================
-
-.. figure:: DBveld.jpg
-    :width: 200px
-    :align: right
-
-In de bovenstaande voorbeelden is er steeds sprake van besturing (*control*), via actuatoren.
-Ook met alleen sensoren voor bewaking (*monitoring*) zijn al veel zinvolle IoT-toepassingen te maken.
-Als voorbeeld gebruiken we het bewaken op afstand van een bijenkast.
-
-Een imker (bijenhouder) heeft vaak meerdere bijenkasten, verspreid over een groot gebied.
-Het loont de moeite om de activiteit van de bijen op afstand te kunnen bewaken.
-De imker kan dan de gezondheid van zijn bijenvolken voortdurend in de gaten houden,
-en op tijd ingrijpen als er dingen mis dreigen te gaan.
-
-De stichting `Beep <https://beep.nl>`_ ontwikkelt een open-source systeem voor het bewaken van bijenkasten
-en voor het bijhouden van de belangrijkste gegevens in een app.
-De gegevens van het automatische meetsysteem combineer je in de app met gegevens van eigen inspecties.
-Het automatische meetsysteem stuurt enkele keren per uur de belangrijkste gegevens op via een LoRa (long range) IoT-netwerk.
-
-.. figure:: beep-lora-internet.png
-    :width: 500px
-    :align: center
-
-Voor een imker zijn bijvoorbeeld de volgende gegevens van belang:
-
-* de buitentemperatuur en de luchtvochtigheid in de omgeving van de kast;
-* de temperatuur in de kast (broedtemperatuur);
-* het gewicht van de kast: als de bijen de kast verlaten neemt het gewicht af;
-  als de bijen terugkomen met nectar neemt het gewicht toe;
-* het geluid in de kast.
-  Als een bijenvolk door indringers beroofd wordt van de voedselvoorraad,
-  kun je dit zien aan de combinatie van gewicht en geluid.
-
-Zie de presentatie hierover: https://www.slideshare.net/martenschoonman/beep-bee-app-overview-presentation-march-2018
-
-Als veel bijenkasten met zo'n systeem uitgerust zijn helpt dat niet alleen de imker,
-maar ook het onderzoek naar het gedrag en de gezondheid van bijenvolken.
-
 Toetsvragen
-===========
+-----------
 
-.. toctree::
-  :maxdepth: 2
 
-  toetsvragen-voorbeelden.rst
+.. mchoice:: vraag-VBW-1
+   :answer_a: Controller
+   :answer_b: IoT-knoop
+   :answer_c: Sensor
+   :answer_d: Actuator
+   :correct: c
+   :feedback_a: Met een controller bestuur je een IoT-toepassing
+   :feedback_b: Een IoT-knoop kan sensoren bevatten (en actuatoren)
+   :feedback_c: Goed!
+   :feedback_d: Met een <em>actuator</em> verander je een fysische grootheid
+
+   Hoe heet een opnemer om een fysische grootheid te meten, bijvoorbeeld de temperatuur?
+
+..
+
+.. mchoice:: vraag1-VBW-2
+   :answer_a: een controller bestuurt de sensoren en actuatoren bij het "ding"
+   :answer_b: een IoT-knoop bevat altijd sensoren en actuatoren
+   :answer_c: een IoT-knoop bevat altijd een controller
+   :answer_d: een IoT-knoop is altijd draadloos verbonden aan het internet
+   :correct: a, c
+   :feedback_a: Ja.
+   :feedback_b: Een IoT-knoop kan ook alleen sensoren of actuatoren bevatten.
+   :feedback_c: Ja.
+   :feedback_d: Een IoT-knoop kan ook bedraad zijn
+
+   Welke van de onderstaande uitspraken is waar?
+
+..
+
+
+.. dragndrop:: vraag1-VBW-3
+  :feedback: Zie: xxx
+  :match_1: Controller ||| Besturingscomputer
+  :match_2: Sensor     ||| Meet een fysische grootheid
+  :match_3: Gateway    ||| Verbindt twee netwerken
+
+  Plaats de termen bij hun beschrijving.
+
+..
+
+.. mchoice:: vraag-VBW-4
+  :answer_a: drukknop
+  :answer_b: relais
+  :answer_c: barometer
+  :answer_d: klep
+  :correct: b,d
+  :feedback_a: Een drukknop zet beweging om in informatie (sensor)
+  :feedback_b: Een relais is een elektrische schakelaar bestuurd door informatie (actuator)
+  :feedback_c: Een barometer zet luchtdruk om in informatie (sensor)
+  :feedback_d: Een klep zet informatie om in beweging: open/dicht (actuator)
+
+  Welke van de onderstaande apparaten zijn actuatoren?
+
+..
+
+.. mchoice:: vraag-VBW-5
+  :answer_a: microfoon
+  :answer_b: luidspreker
+  :answer_c: controller
+  :answer_d: GPS-ontvanger
+  :answer_e: servomotor
+  :correct: a,d
+  :feedback_a: Een microfoon zet geluid om in informatie (sensor)
+  :feedback_b: Een luidspreker zet informatie om in geluid (actuator)
+  :feedback_c: Een controller is een besturingscomputer (geen sensor of actuator)
+  :feedback_d: Een GPS-ontvanger zet een positie om in informatie (sensor)
+  :feedback_e: Een servomotor zet informatie om in een hoekverdraaiing (actuator)
+
+  Welke van de onderstaande apparaten zijn sensoren?
+
+..
+
+.. mchoice:: vraag-VBW-6
+  :answer_a: Controller
+  :answer_b: IoT-knoop
+  :answer_c: Sensor
+  :answer_d: Actuator
+  :correct: c
+  :feedback_a: Met een controller bestuur je een IoT-toepassing
+  :feedback_b: Een IoT-knoop kan sensoren bevatten (en actuatoren)
+  :feedback_c: Goed!
+  :feedback_d: Met een <em>actuator</em> verander je een fysische grootheid
+
+  Wat zet een fysisch verschijnsel om in informatie?

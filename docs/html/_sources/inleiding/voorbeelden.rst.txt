@@ -262,6 +262,5 @@ Toetsvragen
 
 .. toctree::
   :maxdepth: 2
-  :hidden:
 
   toetsvragen-voorbeelden.rst
